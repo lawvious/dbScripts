@@ -25,9 +25,6 @@ create table dbo.role
 	role_desc nvarchar(50)
 )
 
-insert into role values (1, 'Attorney role')
-insert into role values (2, 'Legal Assistant role')
-
 if object_id('dbo.member_type', 'u') is not null
 begin
 	if exists (select 1 from sys.objects o where o.object_id = object_id('FK_membertypes_membertypeid') and OBJECTPROPERTY(o.object_id, 'isforeignkey') = 1)
@@ -44,9 +41,6 @@ create table dbo.member_type
 	member_type_name nvarchar(50) not null,
 	member_type_desc nvarchar(200)
 )
-
-insert into member_type values (1, 'Attorney', 'Account used for attorneys')
-insert into member_type values (2, 'Client', 'Account used for clients')
 
 if object_id('dbo.account', 'u') is not null
 begin
